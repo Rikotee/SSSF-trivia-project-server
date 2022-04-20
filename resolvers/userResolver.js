@@ -9,6 +9,15 @@ export default {
       // find user by id
       return await User.findById(args.id);
     },
+    // find list of users
+    users: async (parent, args) => {
+      const start = args.start || 0;
+      const limit = args.limit || 10;
+      const users = User.find().skip(start).limit(limit);
+
+      return args.bounds
+        ? users.find(): users;
+    },
     login: async (parent, args, { req }) => {
       // get username and password from query
       // and add to req.body for passport

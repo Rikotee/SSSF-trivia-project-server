@@ -2,6 +2,7 @@ import { gql } from 'apollo-server-express';
 
 export default gql`
   extend type Query {
+    users(start: Int, limit: Int): [User]
     user(id: ID!): User
     login(username: String!, password: String!): User
   }
