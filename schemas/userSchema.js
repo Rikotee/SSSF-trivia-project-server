@@ -8,13 +8,13 @@ export default gql`
   }
 
   extend type Mutation {
-    registerUser(username: String!, password: String!, full_name: String): User
+    registerUser(username: String!, password: String!, highscore: Int! = 0): User
   }
 
   type User {
     id: ID
     username: String
-    full_name: String
+    highscore: Int
     token: String
   }
 `;
