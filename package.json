@@ -2,12 +2,11 @@
   "name": "sssfprojecttrivia",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "start.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Teemu Rekola",
   "license": "ISC",
   "dependencies": {
     "apollo-server-express": "^3.6.7",
