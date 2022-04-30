@@ -16,13 +16,14 @@ export default {
         throw new AuthenticationError('Not authorised');
       }
       const start = args.start || 0;
-      const limit = args.limit || 10;
+/*       const limit = args.limit || 10; */
       const users = (await User
         .find()
-        .skip(start)
-        .limit(limit))
+        .skip(start))
+/*         .limit(limit)) */
         .filter((a) => a.highscore >= 0.1)
-        .sort((a, b) => {return b.highscore - a.highscore});
+        .sort((a, b) => {return b.highscore - a.highscore})
+        .slice(0, 10);
 
       return args.bounds
         ? users.find(): users;
