@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import User from '../models/userModel';
 import { login } from '../utils/auth';
+import { AuthenticationError } from 'apollo-server-express';
 
 export default {
   Query: {
@@ -10,10 +11,18 @@ export default {
       return await User.findById(args.id);
     },
     // find list of users
-    users: async (parent, args) => {
+    users: async (parent, args, context) => {
+      if (!context.user) {
+        throw new AuthenticationError('Not authorised');
+      }
       const start = args.start || 0;
       const limit = args.limit || 10;
-      const users = User.find().skip(start).limit(limit);
+      const users = (await User
+        .find()
+        .skip(start)
+        .limit(limit))
+        .filter((a) => a.highscore >= 0.1)
+        .sort((a, b) => {return b.highscore - a.highscore});
 
       return args.bounds
         ? users.find(): users;
@@ -39,6 +48,12 @@ export default {
       } catch (err) {
         throw new Error(err);
       }
+    },
+    modifyHighscore: async (parent, args, context) => {
+      if (!context.user) {
+        throw new AuthenticationError('Not authorised');
+      }
+      return await User.findByIdAndUpdate(args.id, args, { new: true });
     },
   },
 };
