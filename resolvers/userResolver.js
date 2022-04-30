@@ -21,8 +21,8 @@ export default {
         .find()
         .skip(start))
 /*         .limit(limit)) */
-        .filter((a) => a.highscore >= 0.1)
-        .sort((a, b) => {return b.highscore - a.highscore})
+        .filter((a) => a.highscoreSD >= 0.1)
+        .sort((a, b) => {return b.highscoreSD - a.highscoreSD})
         .slice(0, 10);
 
       return args.bounds
@@ -51,6 +51,12 @@ export default {
       }
     },
     modifyHighscore: async (parent, args, context) => {
+      if (!context.user) {
+        throw new AuthenticationError('Not authorised');
+      }
+      return await User.findByIdAndUpdate(args.id, args, { new: true });
+    },
+    modifyHighscoreSD: async (parent, args, context) => {
       if (!context.user) {
         throw new AuthenticationError('Not authorised');
       }
