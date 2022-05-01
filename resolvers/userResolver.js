@@ -6,21 +6,19 @@ import { AuthenticationError } from 'apollo-server-express';
 export default {
   Query: {
     user: async (parent, args, { user }) => {
-      console.log('userResolver', user);
       // find user by id
       return await User.findById(args.id);
     },
-    // find list of users
+    // find 10 users that have highest points
+    // used in scoreboard
     users: async (parent, args, context) => {
       if (!context.user) {
         throw new AuthenticationError('Not authorised');
       }
       const start = args.start || 0;
-/*       const limit = args.limit || 10; */
       const users = (await User
         .find()
         .skip(start))
-/*         .limit(limit)) */
         .filter((a) => a.highscoreSD >= 0.1)
         .sort((a, b) => {return b.highscoreSD - a.highscoreSD})
         .slice(0, 10);
