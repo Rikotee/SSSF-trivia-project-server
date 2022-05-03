@@ -18,4 +18,5 @@ In addition to that this API is also responsible for registering and logging in 
 * Clone the repository and run npm i in order to install the required packages.
 * cd to cloned repository.
 
+![This is an login query image](https://users.metropolia.fi/~teemutr/queryimg/login.png)
 

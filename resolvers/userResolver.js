@@ -5,12 +5,13 @@ import { AuthenticationError } from 'apollo-server-express';
 
 export default {
   Query: {
+    // find user by id.
+    // used when fetching highscores
     user: async (parent, args, { user }) => {
-      console.log('userResolver', user);
-      // find user by id
+      // console.log('userResolver', user);
       return await User.findById(args.id);
     },
-    // find list of users
+    // find list of users that have highscore then fetch 10 best
     users: async (parent, args, context) => {
       if (!context.user) {
         throw new AuthenticationError('Not authorised');
@@ -27,8 +28,6 @@ export default {
         ? users.find(): users;
     },
     login: async (parent, args, { req }) => {
-      // get username and password from query
-      // and add to req.body for passport
       req.body = args;
       return await login(req);
     },
@@ -48,6 +47,7 @@ export default {
         throw new Error(err);
       }
     },
+    // for saving new highscores 
     modifyHighscore: async (parent, args, context) => {
       if (!context.user) {
         throw new AuthenticationError('Not authorised');
