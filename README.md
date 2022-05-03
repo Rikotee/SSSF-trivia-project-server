@@ -18,6 +18,18 @@ In addition to that this API is also responsible for registering and logging in 
 * Clone the repository and run npm i in order to install the required packages.
 * cd to cloned repository.
 
+## Database
+use trivia
+
+create user
+```
+db.createUser({user: "your-username", pwd: "your-password", roles: [ { role: "readWrite", db: "trivia" }]})
+```
+
+create .env
+```
+DB_URL=mongodb://your-username:your-password@server-address/trivia
+```
 
 ## Query
 
