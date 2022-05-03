@@ -18,5 +18,21 @@ In addition to that this API is also responsible for registering and logging in 
 * Clone the repository and run npm i in order to install the required packages.
 * cd to cloned repository.
 
+
+## Query
+
+### Example login query
 ![This is an login query image](https://users.metropolia.fi/~teemutr/queryimg/login.png)
+
+### Example register query
+![This is an register query image](https://users.metropolia.fi/~teemutr/queryimg/register.png)
+
+### Example users query
+![This is an users query image](https://users.metropolia.fi/~teemutr/queryimg/users.png)
+
+### Example user query
+![This is an user query image](https://users.metropolia.fi/~teemutr/queryimg/user.png)
+
+### Example modify highscore query
+![This is an modify highscore query image](https://users.metropolia.fi/~teemutr/queryimg/modifyhs.png)
 
