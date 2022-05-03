@@ -48,6 +48,8 @@ db.createUser({user: "your-username", pwd: "your-password", roles: [ { role: "re
 ### Example register query
 ![This is an register query image](https://users.metropolia.fi/~teemutr/queryimg/register.png)
 
+All these below require a bearer token (JWT) to be sent in the "Authorization" header.
+
 ### Example users query
 ![This is an users query image](https://users.metropolia.fi/~teemutr/queryimg/users.png)
 

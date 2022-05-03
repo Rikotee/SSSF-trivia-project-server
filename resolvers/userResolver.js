@@ -7,8 +7,10 @@ export default {
   Query: {
     // find user by id.
     // used when fetching highscores
-    user: async (parent, args, { user }) => {
-      // console.log('userResolver', user);
+    user: async (parent, args, context, { user }) => {
+      if (!context.user) {
+        throw new AuthenticationError('Not authorised');
+      }
       return await User.findById(args.id);
     },
     // find list of users that have highscore then fetch 10 best
@@ -47,7 +49,7 @@ export default {
         throw new Error(err);
       }
     },
-    // for saving new highscores 
+    // for saving new highscores
     modifyHighscore: async (parent, args, context) => {
       if (!context.user) {
         throw new AuthenticationError('Not authorised');
