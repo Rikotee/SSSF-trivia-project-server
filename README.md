@@ -4,8 +4,8 @@ This is the GraphQL API used in Web frontend for application called Trivia.
 This README will only cover the topics relevant to the backend such as:
 
 * General info
-* Getting started and deployment
 * Setting MongoDB database
+* Getting started
 * Example query
 
 ## General info
@@ -24,7 +24,7 @@ create user
 db.createUser({user: "your-username", pwd: "your-password", roles: [ { role: "readWrite", db: "trivia" }]})
 ```
 
-## Getting started and deployment
+## Getting started
 
 * Clone the repository and run npm i in order to install the required packages.
 * cd to cloned repository.
