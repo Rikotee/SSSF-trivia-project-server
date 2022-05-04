@@ -13,6 +13,17 @@ This README will only cover the topics relevant to the backend such as:
 The main purpose of this backend is to store users best scores in the game. 
 In addition to that this API is also responsible for registering and logging in users and doing the authentication required to make the requests.
 
+## MongoDB database
+
+```
+use trivia
+```
+
+create user
+```
+db.createUser({user: "your-username", pwd: "your-password", roles: [ { role: "readWrite", db: "trivia" }]})
+```
+
 ## Getting started and deployment
 
 * Clone the repository and run npm i in order to install the required packages.
@@ -27,17 +38,6 @@ start server
 
 ```
 nodemon
-```
-
-## MongoDB database
-
-```
-use trivia
-```
-
-create user
-```
-db.createUser({user: "your-username", pwd: "your-password", roles: [ { role: "readWrite", db: "trivia" }]})
 ```
 
 ## Query
