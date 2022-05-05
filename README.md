@@ -57,14 +57,45 @@ query Login($username: String!, $password: String!) {
 ### Example register query
 ![This is an register query image](https://users.metropolia.fi/~teemutr/queryimg/register.png)
 
+mutation RegisterUser($username: String!, $password: String!) {
+  registerUser(username: $username, password: $password) {
+    id
+    username
+  }
+}
+
 All these below require a bearer token (JWT) to be sent in the "Authorization" header.
 
 ### Example users query
 ![This is an users query image](https://users.metropolia.fi/~teemutr/queryimg/users.png)
 
+query Users {
+  users {
+    username
+    id
+    highscore
+    highscoreSD
+    token
+  }
+}
+
 ### Example user query
 ![This is an user query image](https://users.metropolia.fi/~teemutr/queryimg/user.png)
 
+query User($userId: ID!) {
+  user(id: $userId) {
+  highscore  
+  }
+}
+
 ### Example modify highscore query
 ![This is an modify highscore query image](https://users.metropolia.fi/~teemutr/queryimg/modifyhs.png)
+
+mutation ModifyHighscore($modifyHighscoreId: ID!, $highscore: Int!) {
+  modifyHighscore(id: $modifyHighscoreId, highscore: $highscore) {
+    id
+    highscore
+    username
+  }
+}
 
