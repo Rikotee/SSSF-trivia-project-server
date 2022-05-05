@@ -65,6 +65,7 @@ mutation RegisterUser($username: String!, $password: String!) {
 }
 
 * All these below require a bearer token (JWT) to be sent in the "Authorization" header.
+* You get token from login response.
 
 ### Example users query
 ![This is an users query image](https://users.metropolia.fi/~teemutr/queryimg/users.png)
