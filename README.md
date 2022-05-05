@@ -45,6 +45,15 @@ nodemon
 ### Example login query
 ![This is an login query image](https://users.metropolia.fi/~teemutr/queryimg/login.png)
 
+query Login($username: String!, $password: String!) {
+  login(username: $username, password: $password) {
+    id
+    highscore
+    username
+    token
+  }
+}
+
 ### Example register query
 ![This is an register query image](https://users.metropolia.fi/~teemutr/queryimg/register.png)
 
