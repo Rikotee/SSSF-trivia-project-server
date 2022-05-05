@@ -1,6 +1,6 @@
 # Trivia API
 
-This is the GraphQL API used in Web frontend for application called Trivia.
+This is the GraphQL API used in application called Trivia.
 This README will only cover the topics relevant to the backend such as:
 
 * General info
